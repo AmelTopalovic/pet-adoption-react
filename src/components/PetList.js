@@ -1,7 +1,20 @@
+import PetListItem from "./PetListItem";
+
 function PetList() {
-  return (<div>
+  const pet = {
+    _id: 1,
+    name: 'Fido',
+    species: 'Dog',
+    gender: 'M',
+    age: 5,
+  };
+  
+  return (
+  <div>
     <h1>Pet List</h1>
-  </div>)
+    <PetListItem item={pet} />
+  </div>
+  );
 }
 
 export default PetList;
