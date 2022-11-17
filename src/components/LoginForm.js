@@ -90,7 +90,7 @@ function LoginForm({ onLogin }) {
   return (
     <div>
       <h1>Login</h1>
-      <form className='form-control'>
+      <form>
         <InputField
         label="Email"
         id="LoginForm-email"
