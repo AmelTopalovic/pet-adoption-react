@@ -1,4 +1,6 @@
-function Navbar({ auth, screen, onNavigate, onLogout }) {
+import { NavLink } from 'react-router-dom';
+
+function Navbar({ auth, onLogout }) {
   function onClickLogout(evt) {
     evt.preventDefault();
     onLogout();
@@ -9,34 +11,24 @@ function Navbar({ auth, screen, onNavigate, onLogout }) {
       <nav className="container-fluid">
         {auth && <span className="navbar-text">{auth.email}</span>}
         <ul className="navbar-nav">
-          {!auth && (<li className="nav-item">
-            <a
-              className="nav-link"
-              href="/login"
-              onClick={(evt) => onNavigate(evt, '/login')}
-            >
-              Login
-            </a>
-          </li>
+          {!auth && (
+            <li className="nav-item">
+              <NavLink to="/login" className="nav-link">
+                Login
+              </NavLink>
+            </li>
           )}
-          {auth && (<li className="nav-item">
-            <a
-              className="nav-link"
-              href="/login"
-              onClick={(evt) => onClickLogout(evt)}
-            >
-              Logout
-            </a>
-          </li>
+          {auth && (
+            <li className="nav-item">
+              <NavLink to="/login" className="nav-link" onClick={(evt) => onClickLogout(evt)}>
+                Logout
+              </NavLink>
+            </li>
           )}
           <li className="nav-item">
-            <a
-              className="nav-link"
-              href="/pet/list"
-              onClick={(evt) => onNavigate(evt, '/pet/list')}
-            >
+            <NavLink to="/pet/list" className="nav-link">
               Pet List
-            </a>
+            </NavLink>
           </li>
         </ul>
       </nav>
